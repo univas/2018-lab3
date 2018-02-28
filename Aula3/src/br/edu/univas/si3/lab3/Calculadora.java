@@ -25,4 +25,21 @@ public class Calculadora {
 	//exercício para casa:
 	//implementar um método para calcular a média dos valores de um vetor
 	//implementar um método de teste para testar este novo método
+	
+	public static float mediaVetor(int [] vetor) {
+		
+		if(vetor == null) {
+			return 0f;
+		}
+		
+		if(vetor.length == 0) {
+			return 0f;
+		}
+		int soma = 0;
+		for(int i = 0; i < vetor.length; i++) {
+			soma += vetor[i];
+		}
+		
+		return soma / vetor.length;
+	}
 }

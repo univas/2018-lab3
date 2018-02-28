@@ -11,7 +11,6 @@ public class CalculadoraTest {
 
 		int resultSoma01 = Calculadora.somar(3, 4);
 		assertEquals(7, resultSoma01);
-		
 			
 //		//cópia do main
 //		int resultSoma1 = Calculadora.somar(3, 4);
@@ -35,11 +34,27 @@ public class CalculadoraTest {
 	}
 
 	@Test
-	public void metodoQualquer() {
-		fail("Not yet implemented");
+	public void testMediaVetor() {
 		
-//		asfdljfjksadfjksad
+		//teste do vetor com alguns valores
+		int [] vet01 = {2, 4, 6, 8};
+//		float valorEsperado01 = 5;
+		float valorObtido01 = Calculadora.mediaVetor(vet01);
+		assertEquals(5, valorObtido01, 0.01);
+		
+		//teste do vetor vazio
+		int [] vet02 = {};
+		assertEquals(0, Calculadora.mediaVetor(vet02), 0.01);
+		
+		//teste de vetor nulo
+		int [] vet03 = null;
+		assertEquals(0, Calculadora.mediaVetor(vet03), 0.01);
 	}
+	
+//	@Test
+//	public void metodoQualquer() {
+//		fail("Not yet implemented");
+//	}
 
 	public void outroMetodo() {
 		

@@ -34,8 +34,8 @@ public class OrdenaTest {
 		assertEquals(0, obtido.length);
 
 		//teste com null
-		vet2 = new int [] {1,3,7,8,9};
-		vet1 = new int [] {2,4,6,8};
+		vet1 = new int [] {1,3,7,8,9};
+		vet2 = new int [] {2,4,6,8};
 		obtido = Ordena.ordenar(null, vet2);
 		assertEquals(4, obtido.length);
 

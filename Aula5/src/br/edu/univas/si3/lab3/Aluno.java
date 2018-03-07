@@ -7,6 +7,8 @@ public class Aluno {
 	//Observação: Utilizar todas as combinações possíveis
 
 	//Exercício 2:
+	//Utilizar o teste para descobir um bug no método
+	//Corrigir o bug e verificar através do teste se o método está correto
 
 	public static int NOTA_MINIMA_EXAME = 30;
 	public static int NOTA_MINIMA_APROVACAO = 60;

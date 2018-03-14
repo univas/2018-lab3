@@ -7,6 +7,8 @@ public class Aluno {
 	//Observação: Utilizar todas as combinações possíveis
 
 	//Exercício 2:
+	//Utilizar o teste para descobir um bug no método
+	//Corrigir o bug e verificar através do teste se o método está correto
 
 	public static int NOTA_MINIMA_EXAME = 30;
 	public static int NOTA_MINIMA_APROVACAO = 60;
@@ -21,7 +23,7 @@ public class Aluno {
 			soma += notas[i];
 		}
 		float media = soma / notas.length;
-		if(media < NOTA_MINIMA_EXAME || qtdFaltas < MINIMO_FALTAS) {
+		if(media < NOTA_MINIMA_EXAME || qtdFaltas > MINIMO_FALTAS) {
 			return "Reprovado";
 		} else if(media < NOTA_MINIMA_APROVACAO) {
 			return "Em exame";

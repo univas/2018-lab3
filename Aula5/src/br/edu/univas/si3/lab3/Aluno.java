@@ -23,7 +23,7 @@ public class Aluno {
 			soma += notas[i];
 		}
 		float media = soma / notas.length;
-		if(media < NOTA_MINIMA_EXAME || qtdFaltas < MINIMO_FALTAS) {
+		if(media < NOTA_MINIMA_EXAME || qtdFaltas > MINIMO_FALTAS) {
 			return "Reprovado";
 		} else if(media < NOTA_MINIMA_APROVACAO) {
 			return "Em exame";

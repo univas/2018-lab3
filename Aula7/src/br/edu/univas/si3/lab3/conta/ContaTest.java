@@ -93,6 +93,14 @@ public class ContaTest {
 		
 		gerente.removerConta(c4);
 		assertEquals(0, gerente.getQuantidadeDeContas());
+		
+		Conta c5 = new Conta(1);
+		gerente.adicionarConta(c1);
+		gerente.removerConta(c5);
+
+		//não remove mais por referência.
+		//a remoção deve ser feita baseada no número da conta
+		assertEquals(0, gerente.getQuantidadeDeContas());
 	}
 
 }

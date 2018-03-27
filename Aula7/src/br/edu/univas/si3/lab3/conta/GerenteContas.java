@@ -20,5 +20,8 @@ public class GerenteContas {
 	
 	public void removerConta(Conta conta) {
 		//Exercício: implementar este método
+		//a remoção deve ser feita baseada no número da conta
+
+		//contas.remove(conta);//assim remove baseado na referência do objeto
 	}
 }

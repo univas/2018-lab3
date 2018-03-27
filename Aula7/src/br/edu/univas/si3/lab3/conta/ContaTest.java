@@ -57,5 +57,42 @@ public class ContaTest {
 		assertEquals(100, c1.getSaldo());
 		assertEquals(1000, c2.getSaldo());
 	}
+	
+	@Test
+	public void testGerenteContas() {
+		
+		GerenteContas gerente = new GerenteContas();
+		
+		Conta c1 = new Conta(1);
+		Conta c2 = new Conta(2);
+		Conta c3 = new Conta(3);
+		Conta c4 = new Conta(4);
+		
+		assertEquals(0, gerente.getQuantidadeDeContas());
+
+		gerente.adicionarConta(c1);
+		assertEquals(1, gerente.getQuantidadeDeContas());
+		
+		gerente.adicionarConta(c2);
+		assertEquals(2, gerente.getQuantidadeDeContas());
+		
+		gerente.adicionarConta(c3);
+		assertEquals(3, gerente.getQuantidadeDeContas());
+		
+		gerente.removerConta(c2);
+		assertEquals(2, gerente.getQuantidadeDeContas());
+
+		gerente.removerConta(c4);
+		assertEquals(2, gerente.getQuantidadeDeContas());
+		
+		gerente.removerConta(c1);
+		assertEquals(1, gerente.getQuantidadeDeContas());
+		
+		gerente.removerConta(c3);
+		assertEquals(0, gerente.getQuantidadeDeContas());
+		
+		gerente.removerConta(c4);
+		assertEquals(0, gerente.getQuantidadeDeContas());
+	}
 
 }

@@ -93,14 +93,35 @@ public class ContaTest {
 		
 		gerente.removerConta(c4);
 		assertEquals(0, gerente.getQuantidadeDeContas());
+	}
+
+	@Test
+	public void testRemoverAvancado() {
+		GerenteContas gerente = new GerenteContas();
 		
-		Conta c5 = new Conta(1);
+		Conta c1 = new Conta(1);//1
+		Conta c2 = new Conta(2);//2
+		Conta c3 = new Conta(3);
+		Conta c4 = new Conta(2);//2
+		Conta c5 = new Conta(1);//1
+
 		gerente.adicionarConta(c1);
 		gerente.removerConta(c5);
-
+		
 		//não remove mais por referência.
 		//a remoção deve ser feita baseada no número da conta
 		assertEquals(0, gerente.getQuantidadeDeContas());
-	}
 
+		gerente.adicionarConta(c2);
+		gerente.removerConta(c3);
+		assertEquals(1, gerente.getQuantidadeDeContas());//só a conta 2
+		
+		gerente.adicionarConta(c3);
+		gerente.removerConta(c3);
+		assertEquals(1, gerente.getQuantidadeDeContas());//só a conta 2
+
+		gerente.adicionarConta(c3);
+		gerente.removerConta(c4);
+		assertEquals(1, gerente.getQuantidadeDeContas());//só a conta 3
+	}
 }

@@ -10,11 +10,16 @@ public class Estoque {
 		produtos = new ArrayList<Produto>();
 	}
 	
-	public int retirar(String nomeProd, int qtd) {
+	public Produto consulta(String nomeProd) {
 		//implementar
 	}
 	
 	public void incluir(String nomeProd, int qtd, int preco) {
 		//implementar
 	}
+
+	public int retirar(String nomeProd, int qtd) {
+		//implementar
+	}
+	
 }

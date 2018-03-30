@@ -14,7 +14,7 @@ public class Pedido {
 		//implementar
 	}
 	
-	public boolean addItem(String nome, int qtd) {
+	public boolean adicionarItem(String nome, int qtd) {
 		//implementar
 	}
 	
@@ -22,11 +22,19 @@ public class Pedido {
 		//implementar
 	}
 	
-	public void entregar() {
+	public boolean entregar() {
 		//implementar
 	}
 	
 	public int getStatus() {
+		//implementar
+	}
+	
+	public ArrayList<Item> getItens() {
+		//implementar
+	}
+	
+	public int calcularValorDoPedido() {
 		//implementar
 	}
 }

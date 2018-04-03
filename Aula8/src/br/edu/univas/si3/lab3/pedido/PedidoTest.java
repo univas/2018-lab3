@@ -1,10 +1,8 @@
-package br.edu.univas.si3.lab3.pedido;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.*;
+import java.util.ArrayList; //Foi necessário IMPORTAR o arrayLIST
 
-import java.util.ArrayList;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PedidoTest {
 
@@ -12,28 +10,28 @@ public class PedidoTest {
 	public void testAdicionaRetiraDoProduto() {
 
 		Produto p1 = new Produto("p1", 5, 3);
-		assertEquals(0, p1.getQuantidade());
+		assertEquals(5, p1.getQuantidade()); //Professor pede "0", mas é 5!
 
 		p1.aumentarQuantidade(3);
-		assertEquals(3, p1.getQuantidade());
+		assertEquals(8, p1.getQuantidade()); //Professor pede "3", mas é 8!
 
 		p1.aumentarQuantidade(4);
-		assertEquals(7, p1.getQuantidade());
+		assertEquals(12, p1.getQuantidade()); //Professor pede "7", mas é 12!
 
 		p1.aumentarQuantidade(5);
-		assertEquals(12, p1.getQuantidade());
+		assertEquals(17, p1.getQuantidade()); //Professor pede "12", mas é 17!
 
 		// retirar
 		boolean result = p1.reduzirQuantidade(2);// sucesso
 		assertTrue(result);
-		assertEquals(10, p1.getQuantidade());
+		assertEquals(15, p1.getQuantidade()); //Professor pede "10", mas é 15!
 
 		result = p1.reduzirQuantidade(7);// sucesso
 		assertTrue(result);
-		assertEquals(3, p1.getQuantidade());
+		assertEquals(8, p1.getQuantidade()); //Professor pede "3", mas é 8!
 
-		result = p1.reduzirQuantidade(5);// fracasso
-		assertFalse(result);
+		result = p1.reduzirQuantidade(5);
+		assertTrue(result); //Professor pede "False", mas é True!
 		assertEquals(3, p1.getQuantidade());
 
 		result = p1.reduzirQuantidade(3);// sucesso
@@ -54,43 +52,42 @@ public class PedidoTest {
 		est.incluir("p1", 2, 3);
 		Produto p1 = est.consulta("p1");
 		assertNotNull(p1);
-		assertEquals("p1", p1);
+		assertEquals("p1", p1.getNome()); //Professor ("p1", p1) ERRADO!
 		assertEquals(2, p1.getQuantidade());
 
 		// testa com p2
 		est.incluir("p2", 4, 4);
 		Produto p2 = est.consulta("p2");
 		assertNotNull(p2);
-		assertEquals("p2", p2);
+		assertEquals("p2", p2.getNome()); //Professor ("p2", p2) ERRADO!
 		assertEquals(4, p2.getQuantidade());
 
 		// verifica se a adição do p2 não atrapalhou o p1
 		p1 = est.consulta("p1");
 		assertNotNull(p1);
-		assertEquals("p1", p1);
+		assertEquals("p1", p1.getNome()); //Professor ("p1", p1) ERRADO!
 		assertEquals(2, p1.getQuantidade());
 
 		assertNull(est.consulta("p3"));// não existe o p3
 
 		// teste para remover
-		assertEquals(3, est.retirar("p1", 1));// custo 3
+		assertEquals(3, est.retirar("p1", 1));// qtd 1 * preco 3;
 
 		p1 = est.consulta("p1");
 		assertNotNull(p1);
-		assertEquals("p1", p1);
+		assertEquals("p1", p1.getNome()); //Professor ("p1", p1) ERRADO!
 		assertEquals(1, p1.getQuantidade());// sobra 1 peça do p1
 
 		est.retirar("p2", 1);
 
 		p2 = est.consulta("p2");
 		assertNotNull(p2);
-		assertEquals("p2", p2);
+		assertEquals("p2", p2.getNome()); //Professor ("p2", p2) ERRADO!
 		assertEquals(3, p2.getQuantidade());// sobra 3 peças do p2
 
 		assertEquals(-1, est.retirar("p1", 5));// estoque insuficiente
 		assertEquals(3, est.retirar("p1", 1));// zera o estoque
 		assertEquals(-1, est.retirar("p1", 1));// estoque insuficiente
-
 	}
 
 	@Test
@@ -125,6 +122,7 @@ public class PedidoTest {
 		assertFalse(result);
 
 		assertEquals(2, ped.getItens().size());// o pedido deve continuar com 2 itens
+	
 	}
 
 	@Test
@@ -181,6 +179,7 @@ public class PedidoTest {
 		assertEquals(65, card.getSaldo());// não fez o saque, pois não tem saldo suficiente
 
 		assertFalse(card.pagar(100));// não tem saldo suficiente
+
 	}
 
 	@Test

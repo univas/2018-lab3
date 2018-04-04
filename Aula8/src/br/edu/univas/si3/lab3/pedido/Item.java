@@ -5,12 +5,16 @@ public class Item {
 	private String nome;
 	private int preco;
 	private int quantidade;
-	
+
 	public Item(String nome, int preco, int qtd) {
-		//implementar
+		// implementar
+		this.nome = nome;
+		this.preco = preco;
+		this.quantidade = qtd;
 	}
-	
+
 	public int calcularPrecoTotal() {
-		//implementar
+		// implementar
+		return preco * quantidade;
 	}
 }

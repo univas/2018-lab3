@@ -12,19 +12,19 @@ public class PedidoTest {
 	public void testAdicionaRetiraDoProduto() {
 
 		Produto p1 = new Produto("p1", 5, 3);
-		assertEquals(0, p1.getQuantidade());
+		assertEquals(5, p1.getQuantidade());
 
 		p1.aumentarQuantidade(3);
-		assertEquals(3, p1.getQuantidade());
+		assertEquals(8, p1.getQuantidade());
 
 		p1.aumentarQuantidade(4);
-		assertEquals(7, p1.getQuantidade());
-
-		p1.aumentarQuantidade(5);
 		assertEquals(12, p1.getQuantidade());
 
+		p1.aumentarQuantidade(5);
+		assertEquals(17, p1.getQuantidade());
+
 		// retirar
-		boolean result = p1.reduzirQuantidade(2);// sucesso
+		boolean result = p1.reduzirQuantidade(7);// sucesso
 		assertTrue(result);
 		assertEquals(10, p1.getQuantidade());
 

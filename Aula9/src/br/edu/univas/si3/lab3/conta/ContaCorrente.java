@@ -10,6 +10,11 @@ public class ContaCorrente extends Conta {
 	}
 	
 	public void atualizarSaldo() {
-		saldo -= manutencaoMensal;//pensar na visibilidade do atributo saldo.
+		super.sacar(manutencaoMensal);//pensar na visibilidade do atributo saldo.
+	}
+	
+	public String gerarExtrato() {
+		String str = "Cliente: " + super.cliente + " Saldo: " + super.getSaldo();
+		return str;
 	}
 }

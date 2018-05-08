@@ -1,6 +1,6 @@
 package br.edu.univas.si3.lab3.conta;
 
-public class Conta {
+public abstract class Conta {
 
 	private int numero;
 	protected String cliente;
@@ -30,9 +30,7 @@ public class Conta {
 		return true;
 	}
 
-	public void atualizarSaldo() {
-		// O que faz este método???
-	}
+	public abstract void atualizarSaldo();
 
 	public int getNumero() {
 		return numero;

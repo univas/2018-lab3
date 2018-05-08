@@ -14,6 +14,8 @@ public class ContaTest {
 		
 		cc.depositar(100);
 		assertEquals(100, cc.getSaldo(), 0.01);
+		
+//		Conta c1 = new Conta(2, "C2");//não pode instanciar uma classe abstrata.
 	}
 
 }

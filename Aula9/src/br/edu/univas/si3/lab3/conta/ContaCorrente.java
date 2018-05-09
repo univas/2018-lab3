@@ -9,8 +9,10 @@ public class ContaCorrente extends Conta {
 		this.manutencaoMensal = manutMensal;
 	}
 	
+	//a assinatura do método deve ser igual a algum método de alguma classe mãe
+	@Override
 	public void atualizarSaldo() {
-		super.sacar(manutencaoMensal);//pensar na visibilidade do atributo saldo.
+		super.sacar(manutencaoMensal);//pensar na visibilidade do atributo saldo. -> ok
 	}
 	
 	public String gerarExtrato() {

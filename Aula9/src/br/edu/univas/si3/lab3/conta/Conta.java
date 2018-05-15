@@ -1,6 +1,6 @@
 package br.edu.univas.si3.lab3.conta;
 
-public abstract class Conta {
+public abstract class Conta implements Atualizacao {
 
 	private int numero;
 	protected String cliente;
@@ -30,7 +30,8 @@ public abstract class Conta {
 		return true;
 	}
 
-	public abstract void atualizarSaldo();
+	//Agora já está definido na interface
+//	public abstract void atualizarSaldo();
 
 	public int getNumero() {
 		return numero;

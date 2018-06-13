@@ -12,9 +12,10 @@ public abstract class Conta implements Atualizacao {
 		this.cliente = cliente;
 	}
 
-	public void sacar(float valor) throws SaldoInsuficienteException {
+	public void sacar(float valor) 
+			throws SaldoInsuficienteException, ValorInvalidoException {
 		if (valor <= 0f) {
-			throw new SaldoInsuficienteException(//TODO: criar uma exceção compatível
+			throw new ValorInvalidoException(//TODO: criar uma exceção compatível
 					"Não é permitido sacar um valor negativo.");
 		}
 		if (valor > saldo) {
@@ -24,6 +25,7 @@ public abstract class Conta implements Atualizacao {
 		saldo -= valor;
 	}
 
+	//TODO: lançar a exceção ValorInvalidoException quando o valor for inválido
 	public boolean depositar(float valor) {
 		if (valor <= 0f) {
 			return false;
@@ -32,6 +34,7 @@ public abstract class Conta implements Atualizacao {
 		return true;
 	}
 
+	//TODO: implementar o transfefirPara, lançando a exceção ValorInvalidoException
 	public int getNumero() {
 		return numero;
 	}

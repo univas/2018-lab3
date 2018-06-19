@@ -7,7 +7,9 @@ public class ContaSalario extends ContaCorrente {
 		
 		//TODO: discutir qual é a melhor estratégia: tratar ou delegar?
 		//Não vai ter jeito.
-		//O java não aceita colocar try/catch no construtor.
+		//O java não aceita colocar try/catch no construtor, pois
+		// se tratar a exceção na filha, a inicialização da 
+		// mãe pode ficar inconsistente.
 		super(numero, cliente, 0f);
 	}
 	

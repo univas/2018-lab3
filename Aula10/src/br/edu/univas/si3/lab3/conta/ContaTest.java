@@ -8,13 +8,10 @@ public class ContaTest {
 
 	@Test
 	public void testContaSalario() {
-		
-		
 		try {
 			ContaSalario c1 = new ContaSalario(1, "c1");
 			
 			assertEquals(0, c1.getSaldo(), 0.01);
-			
 			c1.depositar(100);
 			assertEquals(100, c1.getSaldo(), 0.01);
 		} catch (ValorInvalidoException e) {
@@ -43,5 +40,40 @@ public class ContaTest {
 		} catch(ValorInvalidoException e) {
 			//deu certo
 		}
+	}
+	
+	@Test
+	public void testPoupanca() {
+		ContaPoupanca cp1 = new ContaPoupanca(1, "c1", 10);
+		try {
+			cp1.atualizarSaldo();
+		} catch (ValorInvalidoException e) {
+			fail("Não pode chegar aqui.");
+		}
+		
+		try {
+			cp1.depositar(30);
+			assertEquals(30, cp1.getSaldo(), 0.01);
+		} catch (ValorInvalidoException e) {
+			fail("Não pode chegar aqui.");
+		}
+		try {
+			cp1.sacar(15);
+			assertEquals(15, cp1.getSaldo(), 0.01);
+		} catch (SaldoInsuficienteException e) {
+			fail("Não pode chegar aqui.");
+		} catch (ValorInvalidoException e) {
+			fail("Não pode chegar aqui.");
+		}
+		
+		try {
+			cp1.sacar(50);
+			fail("Não pode chegar aqui.");
+		} catch (SaldoInsuficienteException e) {
+			//ok
+		} catch (ValorInvalidoException e) {
+			//ok
+		}
+		assertEquals(15, cp1.getSaldo(), 0.01);
 	}
 }

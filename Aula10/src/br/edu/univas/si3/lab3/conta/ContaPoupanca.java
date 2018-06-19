@@ -10,7 +10,7 @@ public class ContaPoupanca extends Conta {
 		this.taxaDeJuros = taxaDeJuros;
 	}
 	
-	public void atualizarSaldo() {
+	public void atualizarSaldo() throws ValorInvalidoException {
 		super.depositar(getSaldo() * taxaDeJuros);
 	}
 }
